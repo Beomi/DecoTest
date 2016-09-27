@@ -22,6 +22,8 @@ class Project extends Component {
                  };
   }
   
+  
+  
   render() {
     return (
       <View style={styles.container}>
@@ -49,13 +51,15 @@ class Project extends Component {
               borderWidth: 1,
               borderColor: "rgba(198,56,56,0.5)",
             }}
-            placeholder={"키(단위:m)"}
+            placeholder={"키(단위:cm)"}
             placeholderTextColor={"rgba(198,198,204,1)"}
             onChangeText={(text2) => {this.setState({text2})}}
           />
         
         <Text style={styles.welcome}>
-          당신의 BMI는{(this.state.text1 / (this.state.text2*this.state.text2)) || 0}입니다.
+          당신의 BMI는{this.state.text1 / (this.state.text2*this.state.text2)/10000 || 0}입니다.
+          
+          당신은 {this.state.text2}이군요!
         </Text>
       </View>
     );
